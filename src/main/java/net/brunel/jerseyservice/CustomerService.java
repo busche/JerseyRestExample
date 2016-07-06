@@ -66,16 +66,17 @@ public class CustomerService {
 
 	@GET
 	@Path("{id}")
-	@Produces(MediaType.APPLICATION_JSON)
+	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public Customer getCustomerAsJson(@PathParam("id") long id) {
 		Optional<Customer> match = cList.stream().filter(c -> c.getId() == id).findFirst();
 		if (match.isPresent()) {
 			return match.get();
 		}
+		// caveat: the Exception always serializes into Json, even though XML is requested ...
 		throw new NotFoundException(new JsonError("Error", "Customer " + id + " not found"));
 
 	}
-
+	
 	@POST
 	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)

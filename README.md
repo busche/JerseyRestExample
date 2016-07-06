@@ -21,8 +21,10 @@ Thereafter, try the following on another console:
 
 
 	curl -H "Accept: application/json" -X GET -i http://localhost:8080/myJersey/customers/all
+	curl -H "Accept: application/xml" -X GET -i http://localhost:8080/myJersey/customers/102
 	curl -H "Accept: text/html" -X GET -i http://localhost:8080/myJersey/customers/all
 	curl -H "Accept: text/plain" -X GET -i http://localhost:8080/myJersey/customers/all
+	
 
 and watch for different outputs.
 

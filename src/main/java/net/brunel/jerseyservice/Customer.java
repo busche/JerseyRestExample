@@ -2,6 +2,10 @@ package net.brunel.jerseyservice;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement (name="customer")
 public class Customer {
   private final long id;
   private final String firstName;
@@ -51,15 +55,15 @@ public class Customer {
       this.state = cust.getState();
       this.birthday = cust.getBirthday();
   }
-  
+  @XmlElement
   public long getId(){
     return this.id;
   }
-
+  @XmlElement
   public String getFirstName() {
     return this.firstName;
   }
-
+  @XmlElement
   public String getLastName() {
     return this.lastName;
   }
